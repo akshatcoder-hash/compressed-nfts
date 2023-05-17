@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@metaplex-foundation/mpl-bubblegum": "^0.6.2"
+  }
+}
