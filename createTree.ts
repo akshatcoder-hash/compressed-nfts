@@ -1,6 +1,6 @@
 import { createCreateTreeInstruction, PROGRAM_ID as BUBBLEGUM_PROGRAM_ID } from "@metaplex-foundation/mpl-bubblegum"
 import { SYSTEM_PROGRAM_ID } from "@raydium-io/raydium-sdk";
-import { loadWalletKey } from "./utils";
+import { loadWalletKey, sendVersionedTx } from "./utils";
 import {Connection, PublicKey, Transaction} from "@solana/web3.js"
 import { SPL_ACCOUNT_COMPRESSION_PROGRAM_ID, SPL_NOOP_PROGRAM_ID, ValidDepthSizePair } from "@solana/spl-account-compression"
 
@@ -33,9 +33,9 @@ async function createTree() {
         public: false
     }
     );
-    const tx = new Transaction();
-    tx.add(ix);
-    const sx = await connection.sendTransaction();
+    
+    const sx = await sendVersionedTx(connection, [ix], keypair.publicKey, [keypair, merkleTree])
+    console.log(sx);
 }
 
 createTree();
