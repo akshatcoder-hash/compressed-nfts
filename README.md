@@ -67,4 +67,3 @@ ts-node createCollectionNFT.ts
 ```bash
 ts-node mintOneCNFT.ts
 ```
-
