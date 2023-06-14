@@ -6,13 +6,13 @@ import { SYSTEM_PROGRAM_ID } from "@raydium-io/raydium-sdk";
 
 async function createTree() {
   // Load the wallet key for the user who will create the merkle tree
-  const keypair = loadWalletKey("CNFTvZm6BPd5ZH2Lbn3mMnSsUYWirqjvRWo9wbcbfAB2.json");
+  const keypair = loadWalletKey("CNFT.json");
 
   // Create a connection to the network
   const connection = new Connection("https://api.devnet.solana.com");
 
   // Load the wallet key for the merkle tree account
-  const merkleTree = loadWalletKey("TREyXNrxJSgrsWoYKU5xo8XYNCBNoZnSBdP5PkC1W2B.json");
+  const merkleTree = loadWalletKey("TREE.json");
 
   // Find the tree authority public key and bump seed
   const [treeAuthority, _bump] = PublicKey.findProgramAddressSync(
