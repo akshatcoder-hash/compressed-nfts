@@ -12,7 +12,7 @@ export const initCollection = async (
     connection: Connection,
     payer: Keypair
   ) => {
-    const cmintKey = loadWalletKey("CoLNfQzbj4nmGgG1XxFMDaebknRZLcztS7V6Umngb9An.json");
+    const cmintKey = loadWalletKey("COLL.json"); //load your collection account keypair
     // const collectionMint = cmintKey.publicKey;
     const collectionMint = await createMint(
       connection,
@@ -129,7 +129,7 @@ export const initCollection = async (
 
 async function main(){
     
-    const keypair = loadWalletKey("CNFTvZm6BPd5ZH2Lbn3mMnSsUYWirqjvRWo9wbcbfAB2.json");
+    const keypair = loadWalletKey("CNFT.json");
     const connection = new Connection("https://api.devnet.solana.com");
     
     initCollection(connection, keypair);
