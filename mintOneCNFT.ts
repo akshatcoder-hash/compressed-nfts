@@ -8,13 +8,15 @@ import {
 
 async function mintOneCNFT() {
   // Load the wallet key for the user who will mint the CNFT
-  const keypair = loadWalletKey("CNFTvZm6BPd5ZH2Lbn3mMnSsUYWirqjvRWo9wbcbfAB2.json");
+  const keypair = loadWalletKey("CNFT.json");
 
   // Create a connection to the Solana network
   const connection = new Connection("https://api.devnet.solana.com");
 
   // Load the wallet key for the merkle tree account
-  const merkleTree = loadWalletKey("TREyXNrxJSgrsWoYKU5xo8XYNCBNoZnSBdP5PkC1W2B.json").publicKey;
+  const merkleTree = loadWalletKey("TREE.json").publicKey;
+
+  // load the Merkle Tree account
 
   // Find the tree authority public key and bump seed
   const [treeAuthority, _bump] = PublicKey.findProgramAddressSync(
@@ -23,7 +25,7 @@ async function mintOneCNFT() {
   );
 
   // Define the collection mint public key
-  const collectionMint = new PublicKey("CoLNfQzbj4nmGgG1XxFMDaebknRZLcztS7V6Umngb9An");
+  const collectionMint = new PublicKey("COLL"); //Replace with your Collection Account
 
   // Find the collection metadata account public key
   const [collectionMetadataAccount, _b1] = PublicKey.findProgramAddressSync(
